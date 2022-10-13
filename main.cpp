@@ -93,7 +93,6 @@ public:
     }
 
 private:
-    // используем в качестве элемента стека нашу структуру
     Stack<PairWithMin<Type>> elements_;
 };
 
@@ -153,15 +152,11 @@ int main() {
     {
     StackMin<int> stack;
        vector<int> values(5);
-       // заполняем вектор для тестирования нашего стека
        iota(values.begin(), values.end(), 1);
-       // перемешиваем значения
        random_shuffle(values.begin(), values.end());
-       // заполняем стек
        for (int i = 0; i < 5; ++i) {
            stack.Push(values[i]);
        }
-       // печатаем стек и его минимум, постепенно убирая из стека элементы
        while (!stack.IsEmpty()) {
            stack.Print();
            cout << "Минимум = "s << stack.PeekMin() << endl;
@@ -174,11 +169,8 @@ int main() {
     {
         SortedStack<int> stack;
         vector<int> values(5);
-        // заполняем вектор для тестирования нашего стека
         iota(values.begin(), values.end(), 1);
-        // перемешиваем значения
         random_shuffle(values.begin(), values.end());
-        // заполняем стек и проверяем, что сортировка сохраняется после каждой вставки
         for (int i = 0; i < 5; ++i) {
             cout << "Вставляемый элемент = "s << values[i] << endl;
             stack.Push(values[i]);
